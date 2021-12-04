@@ -1,25 +1,38 @@
-body {
+/**************************/ 
+/**************************/ 
+/*Form*/ 
+/**************************/ 
+/**************************/ 
+#formBlock{
+  margin-top: 8%;
   align-items: center;
   display: flex;
+  width: 100%;
   justify-content: center;
-  height: 100vh;
 }
-  
 #form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background-color: #15172b;
   box-sizing: border-box;
   border-radius: 20px;
+  height: 500px;
   padding: 20px;
+  width: 320px;
 }
 
 #titleForm{
   color: white;
   font-size: 36px;
-  margin-top: 15px;
+  margin-top: 0;
+  margin-left: 40px;
   font-weight: 300;
 }
 
 .containerInput {
+  display: flex;
+  justify-content: center;
   margin-bottom: 10%;
   position: relative;
   width: 100%;
@@ -33,7 +46,7 @@ body {
   color: #eee;
   font-size: 16px;
   outline: 0;
-  padding: 10px 20px;
+  padding: 10px;
   margin: 0%;
 }
   
@@ -52,7 +65,40 @@ body {
   width: 100%;
 }
   
-  .submit:active {
-    background-color: #06b;
-  }
-  
+/**************************/ 
+/**************************/ 
+/*List*/ 
+/**************************/ 
+/**************************/ 
+#listBlock{
+  background-color: #15172b;
+  box-sizing: border-box;
+  border-radius: 20px;
+  padding: 20px;
+  margin-top: 14%;
+}
+h2{
+  font-weight: 200;
+  font-size: 20px;
+  color: white;
+}
+#titleListBlock{
+  margin-top: 0%;
+  color: white;
+  font-size: 40px;
+  font-weight: 300;
+}
+
+
+/**************************/ 
+/**************************/ 
+/*Scrollbar*/ 
+/**************************/ 
+/**************************/ 
+::-webkit-scrollbar{
+	width: 10px;
+}
+::-webkit-scrollbar-thumb {
+	background: gray;
+	border-radius: 15px;
+}
