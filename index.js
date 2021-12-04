@@ -1,8 +1,16 @@
-window.onload = function(){
-    console.log('Loaded!');
+async function loadingHeroku(){
+    let url = `https://team-jasmien.herokuapp.com/allChallenges`;
+    let resp = await fetch(url);
+    return await resp.json()
 }
 
-async function loadingHeroku(){
-    let response = await fetch('https://team-jasmien.herokuapp.com/');
-        return await response.json();
+window.onload = function(){
+    console.log('Loaded!');
+
+    async function run(){
+        let data = await loadingHeroku()
+        console.log(data)
+    }
+
+    run();
 }
