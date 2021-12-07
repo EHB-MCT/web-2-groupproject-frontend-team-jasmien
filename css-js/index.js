@@ -47,7 +47,7 @@ function form(nameInput, pointsInput, courseInput, sessionInput){
 
     fetch("https://team-jasmien.herokuapp.com/saveChallenge", {
         method: 'POST',
-        headers: header,                        // info voor api om te zien wat voor type het is
+        headers: header,                        // laat weten welke taal hij moet hebben en in welke taal hij communiceert
         body: JSON.stringify({
             name: nameInput,
             points: pointsInput,
