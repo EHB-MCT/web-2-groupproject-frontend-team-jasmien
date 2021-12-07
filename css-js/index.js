@@ -32,13 +32,12 @@ async function run() {
                 <h2>Session: ${element.sessions}</h2>
                 <hr id="hr">            
             </div>`;
-        document.getElementById("listChallenge").innerHTML = htmlString;
+        document.getElementById("listChallenge").insertAdjacentHTML = htmlString;
     })
       
 }
 
 function form(nameInput, pointsInput, courseInput, sessionInput){
-
     let header = new Headers();
     header.append("Content-Type", "application/json");
 
@@ -55,5 +54,6 @@ function form(nameInput, pointsInput, courseInput, sessionInput){
     .then(response => response.json())
     .then(dataPost=> {
         console.log("Succes Post", dataPost)
-    })      
+        run()
+    })
 }
