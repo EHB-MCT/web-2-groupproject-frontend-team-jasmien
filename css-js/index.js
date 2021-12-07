@@ -39,22 +39,20 @@ function form(){
     let course = document.getElementById('course').value;
     let session = document.getElementById('session').value
         
+    let object = name, points, course, session;
     console.log(name, points, course, session);
 
     fetch("https://team-jasmien.herokuapp.com/saveChallenge", {
         method: 'POST',
         body: JSON.stringify({
-            name, 
-            points,
-            course,
-            session
+            object
         }),
     })    
     .then(response => response.json())
     .then(dataPost=> {
         console.log("Succes Post", dataPost)
     })
-    run()       
+    loadingHeroku()       
 }
 
 // function loadingHeroku() {
