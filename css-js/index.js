@@ -1,8 +1,15 @@
+"use strict";
+
 window.onload = function () {
+    loadingHeroku()
     console.log('Loaded!');
     document.getElementById('form').addEventListener('submit', e => {
         e.preventDefault();
-        form();
+        let nameInput = document.getElementById('challenge').value;
+        let pointsInput = document.getElementById('points').value;
+        let courseInput = document.getElementById('course').value;
+        let sessionInput = document.getElementById('session').value;
+        form(nameInput, pointsInput, courseInput, sessionInput);
     })
 }
 
@@ -33,18 +40,20 @@ async function run() {
       
 }
 
-function form(){
-    let object = {
-        'name': document.getElementById('challenge').value,
-        'points': document.getElementById('points').value,
-        'course': document.getElementById('course').value,
-        'session': document.getElementById('session').value
-    }
-    console.log(object.name);
+function form(nameInput, pointsInput, courseInput, sessionInput){
+
+    let header = new Headers();
+    header.append("Content-Type", "application/json");
 
     fetch("https://team-jasmien.herokuapp.com/saveChallenge", {
         method: 'POST',
-        body: JSON.stringify({object}),
+        headers: header,                        // info voor api om te zien wat voor type het is
+        body: JSON.stringify({
+            name: nameInput,
+            points: pointsInput,
+            course: courseInput,
+            session: sessionInput
+        }),
     })    
     .then(response => response.json())
     .then(dataPost=> {
