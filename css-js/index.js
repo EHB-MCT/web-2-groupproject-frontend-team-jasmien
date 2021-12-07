@@ -1,7 +1,7 @@
 "use strict";
 
 window.onload = function () {
-    loadingHeroku()
+    run()
     console.log('Loaded!');
     document.getElementById('form').addEventListener('submit', e => {
         e.preventDefault();
@@ -23,8 +23,6 @@ async function run() {
     let dataGet = await loadingHeroku()
     console.log(dataGet)
     dataGet.forEach(element => {
-        console.log(element);
-        let container = document.getElementById('listBlock');
         let htmlString = `
             <h1 id="titleListBlock">Challenge</h1>
             <div id="containerList">
@@ -34,8 +32,7 @@ async function run() {
                 <h2>Session: ${element.sessions}</h2>
                 <hr id="hr">            
             </div>`;
-        console.log(htmlString)
-        container.insertAdjacentHTML('beforeend', htmlString);  
+        document.getElementById("listChallenge").innerHTML = htmlString;
     })
       
 }
@@ -58,6 +55,5 @@ function form(nameInput, pointsInput, courseInput, sessionInput){
     .then(response => response.json())
     .then(dataPost=> {
         console.log("Succes Post", dataPost)
-    })
-    run()       
+    })      
 }
